@@ -2,13 +2,11 @@
 
 Terraform module which creates VPC resources on AWS.
 
-[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
-
 ## Usage
 
 ```hcl
 module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
+  source = "gitlab.nexdev.net/iac-terraform/vpc/aws"
 
   name = "my-vpc"
   cidr = "10.0.0.0/16"
@@ -49,7 +47,7 @@ Then, pass the allocated IPs as a parameter to this module.
 
 ```hcl
 module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
+  source = "gitlab.nexdev.net/iac-terraform/vpc/aws"
 
   # The rest of arguments are omitted for brevity
 
@@ -141,7 +139,7 @@ Prior to Terraform 0.13, you were unable to specify `count` in a module block. I
 ```hcl
 # This VPC will not be created
 module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
+  source = "gitlab.nexdev.net/iac-terraform/vpc/aws"
 
   create_vpc = false
   # ... omitted
@@ -179,7 +177,7 @@ Sometimes it is handy to have public access to Redshift clusters (for example if
 
 ## Transit Gateway (TGW) integration
 
-It is possible to integrate this VPC module with [terraform-aws-transit-gateway module](https://github.com/terraform-aws-modules/terraform-aws-transit-gateway) which handles the creation of TGW resources and VPC attachments. See [complete example there](https://github.com/terraform-aws-modules/terraform-aws-transit-gateway/tree/master/examples/complete).
+It is possible to integrate this VPC module with [terraform-aws-transit-gateway module](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-transit-gateway) which handles the creation of TGW resources and VPC attachments. See [complete example there](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-transit-gateway/tree/master/examples/complete).
 
 ## VPC CIDR from AWS IP Address Manager (IPAM)
 
@@ -219,7 +217,7 @@ locals {
 }
 
 module "vpc_cidr_from_ipam" {
-  source            = "terraform-aws-modules/vpc/aws"
+  source            = "gitlab.nexdev.net/iac-terraform/vpc/aws"
   name              = "vpc-cidr-from-ipam"
   ipv4_ipam_pool_id = data.aws_vpc_ipam_pool.ipv4_example.id
   azs               = local.azs
@@ -231,22 +229,22 @@ module "vpc_cidr_from_ipam" {
 
 ## Examples
 
-- [Complete VPC](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/complete) with VPC Endpoints.
-- [VPC using IPAM](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/ipam)
-- [Dualstack IPv4/IPv6 VPC](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/ipv6-dualstack)
-- [IPv6 only subnets/VPC](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/ipv6-only)
-- [Manage Default VPC](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/manage-default-vpc)
-- [Network ACL](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/network-acls)
-- [VPC with Outpost](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/outpost)
-- [VPC with secondary CIDR blocks](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/secondary-cidr-blocks)
-- [VPC with unique route tables](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/separate-route-tables)
-- [Simple VPC](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/simple)
-- [VPC Flow Logs](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/vpc-flow-logs)
-- [Few tests and edge case examples](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/examples/issues)
+- [Complete VPC](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/complete) with VPC Endpoints.
+- [VPC using IPAM](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/ipam)
+- [Dualstack IPv4/IPv6 VPC](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/ipv6-dualstack)
+- [IPv6 only subnets/VPC](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/ipv6-only)
+- [Manage Default VPC](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/manage-default-vpc)
+- [Network ACL](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/network-acls)
+- [VPC with Outpost](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/outpost)
+- [VPC with secondary CIDR blocks](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/secondary-cidr-blocks)
+- [VPC with unique route tables](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/separate-route-tables)
+- [Simple VPC](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/simple)
+- [VPC Flow Logs](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/vpc-flow-logs)
+- [Few tests and edge case examples](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/examples/issues)
 
 ## Contributing
 
-Report issues/questions/feature requests on in the [issues](https://github.com/terraform-aws-modules/terraform-aws-vpc/issues/new) section.
+Report issues/questions/feature requests on in the [issues](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/issues/new) section.
 
 Full contributing [guidelines are covered here](.github/contributing.md).
 
@@ -694,11 +692,11 @@ No modules.
 
 ## Authors
 
-Module is maintained by [Anton Babenko](https://github.com/antonbabenko) with help from [these awesome contributors](https://github.com/terraform-aws-modules/terraform-aws-vpc/graphs/contributors).
+Module is maintained by [Anton Babenko](https://github.com/antonbabenko) with help from [these awesome contributors](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/graphs/contributors).
 
 ## License
 
-Apache 2 Licensed. See [LICENSE](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/LICENSE) for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/gitlab.nexdev.net/iac-terraform/terraform-aws-vpc/tree/master/LICENSE) for full details.
 
 ## Additional information for users from Russia and Belarus
 
